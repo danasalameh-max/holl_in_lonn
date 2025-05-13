@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <!-- ربط ملف JavaScript -->
+    <link rel="script.js" href="script.js">
+    <style>
+        /* إعدادات الصفحة العامة */
+        * { 
+            margin: 0; /* إزالة الهوامش */
+            padding: 0; /* إزالة الحشوة */
+            box-sizing: border-box; /* تعيين كيفية حساب الحجم */
+            font-family: 'Arial', sans-serif; /* تحديد الخط */
+        }
+
+        body { 
+            background-color: #efede8; /* لون الخلفية */
+            text-align: center; /* محاذاة النص في المنتصف */
+            padding-bottom: 50px; /* إضافة حشوة من الأسفل */
+        }
+
+        /* تنسيق رأس الصفحة */
+        header {
+            background: linear-gradient(135deg, #2C3E50, #1ABC9C); /* تأثير التدرج اللوني */
+            padding: 20px; /* الحشوة */
+            color: white; /* لون النص */
+            font-size: 28px; /* حجم الخط */
+            font-weight: bold; /* سمك الخط */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* إضافة ظل للنص */
+        }
+
+        /* تنسيق قائمة التنقل */
+        nav { 
+            background-color: #2C3E50; /* اللون الخلفي */
+            padding: 15px; /* الحشوة */
+        }
+
+        /* تنسيق روابط التنقل */
+        nav a { 
+            color: white; /* لون النص */
+            text-decoration: none; /* إزالة التسطير */
+            font-size: 18px; /* حجم الخط */
+            margin: 0 15px; /* المسافة بين الروابط */
+            padding: 10px 15px; /* الحشوة */
+            transition: 0.3s; /* تأثير الانتقال */
+        }
+
+        /* تأثير عند التمرير فوق الرابط */
+        nav a:hover { 
+            background-color: #1ABC9C; /* تغيير الخلفية */
+            border-radius: 5px; /* إضافة حواف دائرية */
+        }
+
+        /* تنسيق الأزرار للتحكم في التكبير والتصغير */
+        .zoom-controls { 
+            margin: 20px 0; /* المسافة حول الأزرار */
+            text-align: center; /* محاذاة النص في المنتصف */
+        }
+
+        /* تنسيق أزرار التكبير والتصغير */
+        .zoom-btn { 
+            background-color: #1ABC9C; /* اللون الخلفي */
+            color: white; /* لون النص */
+            padding: 10px 15px; /* الحشوة */
+            font-size: 16px; /* حجم الخط */
+            border: none; /* إزالة الحدود */
+            cursor: pointer; /* تغيير المؤشر عند التمرير فوق الزر */
+            border-radius: 5px; /* الحواف الدائرية */
+            margin: 5px; /* المسافة حول الزر */
+            transition: 0.3s; /* تأثير الانتقال */
+        }
+
+        /* تأثير عند التمرير فوق الزر */
+        .zoom-btn:hover { 
+            background-color: #16A085; /* تغيير الخلفية */
+        }
+
+        /* تنسيق حاوية الخدمات */
+        .service-container { 
+            max-width: 600px; /* الحد الأقصى للعرض */
+            margin: 40px auto; /* المسافة حول العنصر */
+            padding: 25px; /* الحشوة */
+            background-color: white; /* لون الخلفية */
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* إضافة ظل للعنصر */
+            border-radius: 10px; /* إضافة حواف دائرية */
+        }
+
+        /* تنسيق العناوين داخل حاوية الخدمات */
+        h2 { 
+            color: #2C3E50; /* لون النص */
+            font-size: 24px; /* حجم الخط */
+            margin-bottom: 15px; /* المسافة من الأسفل */
+        }
+
+        /* تنسيق الفقرات داخل حاوية الخدمات */
+        p { 
+            font-size: 18px; /* حجم الخط */
+            margin: 10px 0; /* المسافة حول الفقرة */
+        }
+
+        /* تنسيق التذييل */
+        footer { 
+            position: fixed; /* تثبيت التذييل في أسفل الصفحة */
+            bottom: 0; /* المسافة من الأسفل */
+            width: 100%; /* عرض التذييل الكامل */
+            background-color: #2C3E50; /* اللون الخلفي */
+            color: white; /* لون النص */
+            padding: 15px; /* الحشوة */
+            font-size: 14px; /* حجم الخط */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- رأس الصفحة -->
+    <header>الخدمات</header>
+
+    <!-- قائمة التنقل -->
+    <nav>
+        <a href="index.html">الرئيسية </a>
+        <a href="about.html">حول المنتجع</a>
+        <a href="gallery.html">معرض الصور </a>
+        <a href="contact.html">تواصل معنا</a>
+        <a href="Fq.html">الأسئلة الشائعة</a>
+        <a href="packages.html">الحزم</a>
+        <a href="facalities.html">المرافق</a>
+        <a href="service.html">الخدمات</a>
+    </nav>
+
+    <!-- أزرار التكبير والتصغير -->
+    <div class="zoom-controls">
+        <button class="zoom-btn" onclick="zoomIn()">تكبير</button>
+        <button class="zoom-btn" onclick="zoomOut()">تصغير</button>
+    </div>
+
+    <!-- حاوية الخدمات -->
+    <div class="service-container">
+        <br>
+        <!-- خدمة دروس قولف -->
+        <h2>دروس قولف متقدمة</h2>
+        <p>تدرب على يد محترفين معتمدين في الغولف لتحسين أدائك.</p>
+        <br>
+
+        <!-- خدمة التدريب الرقمي -->
+        <h2>تدريب رقمي</h2>
+        <p>خوض تجربة التدريب الرقمي لجميع المراحل.</p>
+        <br>
+
+        <!-- خدمة تأجير سيارات قولف -->
+        <h2>تاجير سيارات قولف</h2>
+        <p>اجر عربات القولف عالية الجودة لتنقل سهل عبر الملاعب.</p>
+    </div>
+
+    <!-- التذييل -->
+    <footer>&copy; منتجع هول ان للقولف - كل الحقوق محفوظة 2025</footer>
+
+    <!-- سكربت التكبير والتصغير -->
+    <script>
+        let zoomLevel = 1; /* مستوى التكبير */
+        
+        /* دالة التكبير */
+        function zoomIn() {
+            if (zoomLevel < 2) { /* التأكد من أن التكبير لا يتجاوز 2 */
+                zoomLevel += 0.1; /* زيادة مستوى التكبير */
+                document.body.style.transform = `scale(${zoomLevel})`; /* تطبيق التكبير */
+                document.body.style.transformOrigin = "top center"; /* تحديد مركز التحويل */
+            }
+        }
+
+        /* دالة التصغير */
+        function zoomOut() {
+            if (zoomLevel > 0.5) { /* التأكد من أن التصغير لا يقل عن 0.5 */
+                zoomLevel -= 0.1; /* تقليل مستوى التكبير */
+                document.body.style.transform = `scale(${zoomLevel})`; /* تطبيق التصغير */
+                document.body.style.transformOrigin = "top center"; /* تحديد مركز التحويل */
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- تحديد الترميز المستخدم في الصفحة، UTF-8 يدعم جميع الأحرف الخاصة مثل العربية -->
+    <meta charset="UTF-8">
+    <!-- يساعد في جعل الصفحة قابلة للعرض بشكل صحيح على جميع الأجهزة باستخدام مقياس مرن -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- عنوان الصفحة في التبويب العلوي للمتصفح -->
+    <title>Facilities</title>
+    <!-- ربط صفحة جافا سكربت الخارجية (ينبغي تعديل الرابط ليعمل بشكل صحيح) -->
+    <link rel="script.js" href="script.js">
+    <style>
+        /* تنسيق عام لكل العناصر */
+        * {margin: 0;padding: 0;box-sizing: border-box;font-family: 'Arial', sans-serif;}
+        /* تنسيق الخلفية والنصوص في الصفحة */
+        body {background-color:#efede8;color: #333;text-align: center;transition: all 0.3s ease-in-out;}
+        /* تنسيق الهيدر مع التدرج اللوني من الأزرق إلى الأخضر */
+        header {background: linear-gradient(135deg, #2C3E50, #1ABC9C);padding: 20px;color: white;font-size: 28px;font-weight: bold;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);}
+        /* تنسيق شريط التنقل (الروابط) */
+        nav {background-color: #2C3E50;padding: 15px;text-align: center;}
+        /* تنسيق الروابط في شريط التنقل */
+        nav a {color: white;text-decoration: none;font-size: 18px;margin: 0 15px;padding: 10px 15px;transition: 0.3s;}
+        /* تأثير عند التمرير على الروابط */
+        nav a:hover {background-color: #1ABC9C;border-radius: 5px;}
+        /* تنسيق الأزرار الخاصة بالتكبير والتصغير */
+        .zoom-btn {background: #1ABC9C;color: white;border: none;padding: 10px;font-size: 18px;cursor: pointer;border-radius: 5px;margin: 10px;transition: 0.3s;}
+        /* تأثير عند التمرير على الأزرار */
+        .zoom-btn:hover {background: #16A085;}
+        /* تنسيق صندوق المرافق */
+        .facilities-container {max-width: 600px;margin: 40px auto;padding: 25px;background-color: white;box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);border-radius: 10px;}
+        /* تنسيق العنوان داخل المرافق */
+        h2 {color: #2C3E50;font-size: 26px;margin-bottom: 15px;}
+        /* إزالة النقاط من قائمة المرافق */
+        ul {list-style: none;padding: 0;}
+        /* تنسيق عناصر القائمة (المرافق) */
+        li {font-size: 20px;padding: 10px;border-bottom: 1px solid #ddd;}
+        /* إزالة الحد السفلي في آخر عنصر من القائمة */
+        li:last-child {border-bottom: none;}
+        /* تنسيق التذييل (الفوتر) */
+        footer {margin-top: 40px;background-color: #2C3E50;color: white;padding: 15px;font-size: 14px;}
+    </style>
+</head>
+<body id="zoom-container">
+    <!-- العنوان الرئيسي للصفحة -->
+    <header>مرافقنا </header>
+    <!-- شريط التنقل الذي يحتوي على روابط للمحتويات المختلفة في الموقع -->
+    <nav>
+        <a href="index.html">الرئيسية </a>
+        <a href="about.html">حول المنتجع</a>
+        <a href="gallery.html">معرض الصور </a>
+        <a href="contact.html">تواصل معنا</a>
+        <a href="Fq.html">الأسئلة الشائعة</a>
+        <a href="packages.html">الحزم</a>
+        <a href="facalities.html">المرافق</a>
+        <a href="service.html">الخدمات</a>
+    </nav>
+    <!-- أزرار لتكبير وتصغير الصفحة -->
+    <button class="zoom-btn" onclick="zoomIn()">تكبير</button>
+    <button class="zoom-btn" onclick="zoomOut()">تصغير</button>
+    <!-- حاوية المرافق التي تحتوي على قائمة المرافق المتاحة في المنتجع -->
+    <div class="facilities-container">
+        <h2>المرافق المتوفرة</h2>
+        <ul>
+            <li>
+                <strong>ثلاث ملاعب لبطولات القولف:</strong> يضم المنتجع ثلاثة ملاعب قولف احترافية، بما في ذلك ملعب "سي فيو" الشهير الذي يتميز بإطلالة رائعة على البحر. تم تصميم الملاعب وفق المعايير الدولية لتوفير تجربة فريدة للمحترفين والهواة.
+            </li>
+            <li>
+                <strong>الإقامة بالفنادق:</strong> يوفر المنتجع إقامة فاخرة في مجموعة من الغرف والأجنحة ذات التصميم العصري، مع إطلالات خلابة على المساحات الخضراء أو البحر. الغرف مزودة بكل وسائل الراحة الحديثة لضمان تجربة مريحة للزوار.
+            </li>
+            <li>
+                <strong>المطاعم والمقاهي:</strong> يقدم المنتجع مجموعة متنوعة من المطاعم التي تقدم المأكولات العالمية والمحلية. يمكن للضيوف الاستمتاع بتناول الطعام في أجواء مريحة وأنيقة، مع خيارات تناول الطعام في الداخل أو في الهواء الطلق.
+            </li>
+            <li>
+                <strong>ناديان:</strong> يحتوي المنتجع على ناديين رياضيين مجهزين بأحدث الأجهزة الرياضية. الأول هو نادي رياضي يتيح للزوار فرصة الحفاظ على لياقتهم البدنية، بينما يقدم الثاني الأنشطة الاجتماعية والترفيهية التي يمكن للزوار الاستمتاع بها.
+            </li>
+            <li>
+                <strong>متجر المحترفين:</strong> يتوفر في المنتجع متجر مخصص لبيع معدات القولف عالية الجودة. يمكن للزوار شراء أو استئجار المعدات، بالإضافة إلى خدمات صيانة وتصليح الأدوات بواسطة متخصصين في المجال.
+            </li>
+            <li>
+                <strong>أنشطة أخرى:</strong>
+                <ul>
+                    <li>ساحة تدريب مضاءة بالأنوار الكشافة، مما يسمح بالتدريب في أي وقت من اليوم.</li>
+                    <li>دروس تعليمية في القولف يتم تقديمها من قبل مدربين محترفين، سواء كانت دروس فردية أو جماعية.</li>
+                    <li>تدريب رقمي باستخدام تقنيات مبتكرة مثل التطبيقات الذكية والذكاء الاصطناعي لتحليل وتحسين الأداء.</li>
+                    <li>خدمة المساعدة على حمل أدوات القولف التي توفر الراحة للزوار أثناء التدريب أو اللعب في الملاعب.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    
+    <!-- تذييل الصفحة (الفوتر) -->
+    <footer>&copy; 2025 منتجع هول ان للقولف - كل الحقوق محفوظة </footer>
+    <!-- سكربت جافا سكربت لإضافة وظائف التكبير والتصغير -->
+    <script>
+        let zoomLevel = 1;  // تحديد مستوى التكبير الافتراضي
+        const zoomStep = 0.2;  // تحديد حجم التغيير عند كل نقر على الأزرار
+        // وظيفة لتكبير الصفحة
+        function zoomIn() {
+            zoomLevel += zoomStep;  // زيادة مستوى التكبير
+            document.body.style.zoom = zoomLevel;}  // تطبيق التكبير على الجسم
+        // وظيفة لتصغير الصفحة
+        function zoomOut() {
+            if (zoomLevel > 1) {  // التأكد من أن التكبير لا يقل عن 100%
+                zoomLevel -= zoomStep;  // تقليل مستوى التكبير
+                document.body.style.zoom = zoomLevel;}}  // تطبيق التصغير على الجسم
+    </script>
+</body>
+</html>

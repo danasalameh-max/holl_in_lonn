@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Packages & Offers</title>
+    <!-- ربط ملف JavaScript -->
+    <link rel="script.js" href="script.js">
+    <style>
+        /* إعدادات الصفحة العامة */
+        * {
+            margin: 0; /* إزالة الهوامش */
+            padding: 0; /* إزالة الحشوة */
+            box-sizing: border-box; /* تعيين كيفية حساب الحجم */
+            font-family: 'Arial', sans-serif; /* تحديد الخط */
+        }
+
+        body {
+            text-align: center; /* محاذاة النص في المنتصف */
+            background-color: #efede8; /* لون الخلفية */
+            color: black; /* لون النص */
+            padding-bottom: 50px; /* إضافة حشوة من الأسفل */
+        }
+
+        /* تنسيق رأس الصفحة */
+        header {
+            background: linear-gradient(135deg, #2C3E50, #1ABC9C); /* تأثير التدرج اللوني */
+            padding: 20px; /* الحشوة */
+            color: white; /* لون النص */
+            font-size: 28px; /* حجم الخط */
+            font-weight: bold; /* سمك الخط */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* إضافة ظل للنص */
+        }
+
+        /* تنسيق قائمة التنقل */
+        nav {
+            background-color: #2C3E50; /* اللون الخلفي */
+            padding: 15px; /* الحشوة */
+            text-align: center; /* محاذاة العناصر في المنتصف */
+        }
+
+        /* تنسيق روابط التنقل */
+        nav a {
+            color: white; /* لون النص */
+            text-decoration: none; /* إزالة التسطير */
+            font-size: 18px; /* حجم الخط */
+            margin: 0 15px; /* المسافة بين الروابط */
+            padding: 10px 15px; /* الحشوة */
+            transition: 0.3s; /* تأثير الانتقال */
+        }
+
+        /* تأثير عند التمرير فوق الرابط */
+        nav a:hover {
+            background-color: #1ABC9C; /* تغيير الخلفية */
+            border-radius: 5px; /* إضافة حواف دائرية */
+        }
+
+        /* تنسيق الحزم والعروض */
+        .package-container {
+            max-width: 800px; /* تعيين الحد الأقصى لعرض العنصر */
+            margin: 40px auto; /* ضبط المسافة حول العنصر */
+            padding: 25px; /* الحشوة */
+            background-color: white; /* لون الخلفية */
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* إضافة ظل للعنصر */
+            border-radius: 10px; /* إضافة حواف دائرية */
+        }
+
+        /* تنسيق العناوين */
+        h2 {
+            color: #2C3E50; /* لون النص */
+            font-size: 24px; /* حجم الخط */
+            margin-top: 20px; /* المسافة من الأعلى */
+        }
+
+        /* تنسيق الفقرات */
+        p {
+            font-size: 18px; /* حجم الخط */
+            margin: 10px auto; /* المسافة حول الفقرة */
+            max-width: 600px; /* تحديد الحد الأقصى للعرض */
+            line-height: 1.6; /* ارتفاع السطر */
+        }
+
+        /* تنسيق الأزرار */
+        .book-btn {
+            background-color: #1ABC9C; /* اللون الخلفي */
+            color: white; /* لون النص */
+            padding: 12px 20px; /* الحشوة */
+            border: none; /* إزالة الحدود */
+            cursor: pointer; /* تغيير المؤشر عند التمرير فوق الزر */
+            font-size: 16px; /* حجم الخط */
+            border-radius: 5px; /* الحواف الدائرية */
+            transition: 0.3s; /* تأثير الانتقال */
+            margin-top: 10px; /* المسافة من الأعلى */
+            display: inline-block; /* عرض الزر كعنصر داخلي */
+        }
+
+        /* تأثير عند التمرير فوق الزر */
+        .book-btn:hover {
+            background-color: #16A085; /* تغيير الخلفية */
+        }
+
+        /* تنسيق أزرار التكبير والتصغير */
+        .zoom-btn {
+            background: #1ABC9C; /* اللون الخلفي */
+            color: white; /* لون النص */
+            border: none; /* إزالة الحدود */
+            padding: 10px; /* الحشوة */
+            font-size: 18px; /* حجم الخط */
+            cursor: pointer; /* تغيير المؤشر عند التمرير فوق الزر */
+            border-radius: 5px; /* الحواف الدائرية */
+            margin: 10px; /* المسافة حول الزر */
+            transition: 0.3s; /* تأثير الانتقال */
+        }
+
+        /* تأثير عند التمرير فوق الزر */
+        .zoom-btn:hover {
+            background: #16A085; /* تغيير الخلفية */
+        }
+
+        /* تنسيق التذييل */
+        footer {
+            margin-top: 40px; /* المسافة من الأعلى */
+            background-color: #2C3E50; /* اللون الخلفي */
+            color: white; /* لون النص */
+            padding: 15px; /* الحشوة */
+            font-size: 14px; /* حجم الخط */
+        }
+        /* إعدادات التقييمات */
+        .reviews {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .stars {
+            font-size: 20px;
+            color: gold;
+        }
+
+        .review-container {
+            background-color: #f1f1f1;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+            text-align: right;
+        }
+
+        .review-container p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .review-container .username {
+            font-weight: bold;
+            color: #1ABC9C;
+        }
+
+        .rating-form {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            margin-top: 30px;
+        }
+
+        .rating-form label {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .rating-form select {
+            font-size: 18px;
+            padding: 8px;
+            margin-bottom: 15px;
+            width: 200px;
+            margin: 0 auto;
+        }
+
+        .rating-form textarea {
+            font-size: 16px;
+            padding: 10px;
+            width: 300px;
+            height: 100px;
+            margin: 0 auto;
+            resize: none;
+        }
+
+        .rating-form button {
+            background-color: #1ABC9C;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: 0.3s;
+            margin-top: 10px;
+            margin: 0 auto;
+        }
+
+        .rating-form button:hover {
+            background-color: #16A085;
+        }
+    </style>
+</head> 
+
+<body>
+    <!-- رأس الصفحة -->
+    <header> الحزم و العروض</header>
+
+    <!-- قائمة التنقل -->
+    <nav>
+        <a href="service.html">الخدمات</a>
+        <a href="contact.html">تواصل معنا</a>
+        <a href="index.html">الرئيسية</a>
+        <a href="facalities.html">المرافق</a>
+        <a href="about.html">حول المنتجع</a>
+        <a href="Fq.html">الاسئلة الشائعة</a>
+        <a href="gallery.html">معرض الصور</a>
+    </nav>
+
+    <!-- أزرار التكبير والتصغير -->
+    <br><br><br><br>
+    <button class="zoom-btn" onclick="zoomIn()">تكبير</button>
+    <button class="zoom-btn" onclick="zoomOut()">تصغير</button>
+
+    <!-- قسم الحزم والعروض -->
+    <section class="hero">
+        <div class="package-container">
+            <h2>الحزمة الفاخرة</h2>
+            <p>إقامة لمدة خمس ليالي في جناح فاخر + خمس جولات - 18 حفرة + جولة واحدة مضمونة في ملعب سي فيو + جلسة تدريب رقمي</p>
+            <button class="book-btn" onclick="alert('Booking confirmed successfully.')">احجز الان</button>
+        </div>
+        <div class="package-container">
+            <h2>الجولة الثلاثية</h2>
+            <p>إقامة لمدة ليلتين في غرفة مزدوجة مع وجبة إفطار + ثلاث جولات - 18 حفرة ، بما في ذلك جولة واحدة في الدورة الشهيرة "إطلالة على البحر" إن وجدت + تأجير عربة مجانية + خصم 20٪ في المتجر المحترف.</p>
+            <button class="book-btn" onclick="alert('Booking confirmed successfully.')">احجز الان</button>
+        </div>
+        <div class="package-container">
+            <h2>استراحة الاستجمام</h2>
+            <p>إقامة لليلة واحدة مع فطور كامل + عشاء في أي من مطاعم المنتجع + الوصول إلى أي دورة (تطبق الرسوم ، باستثناء دورة Sea View) + تأجير مجاني للنادي.</p>
+            <button class="book-btn" onclick="alert('Booking confirmed successfully.')">احجز الان</button>
+        </div>
+        <div class="package-container">
+            <p>* الحزم المخصصة للأحداث والشركات والإقامات طويلة الأجل متوفرة; ومع ذلك ، يجب على العملاء الاتصال بالشركة لترتيب أي حزم مخصصة.</p>
+        </div>
+        
+    <section class="reviews">
+        <h3>التقييمات</h3>
+        <div class="review-container">
+            <p><span class="username">أحمد</span>: <span class="stars">⭐⭐⭐⭐⭐</span></p>
+            <p>تجربة رائعة، الخدمة ممتازة والمرافق كانت مدهشة. سأكرر الزيارة بالتأكيد.</p>
+        </div>
+        <div class="review-container">
+            <p><span class="username">سارة</span>: <span class="stars">⭐⭐⭐⭐</span></p>
+            <p>المنتجع جميل جداً ولكن كان يمكن تحسين الأوقات المحددة للجولات.</p>
+        </div>
+    </section>
+
+    <!-- نموذج التقييم -->
+    <section class="rating-form">
+        <h3>أضف تقييمك</h3>
+        <label for="rating">اختر التقييم:</label>
+        <select id="rating">
+            <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
+            <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
+            <option value="⭐⭐⭐">⭐⭐⭐</option>
+            <option value="⭐⭐">⭐⭐</option>
+            <option value="⭐">⭐</option>
+        </select>
+
+        <textarea id="review-text" placeholder="اكتب رأيك هنا..." required></textarea>
+        <button onclick="submitReview()">إرسال التقييم</button>
+    </section>
+    </section>
+
+    <!-- التذييل -->
+    <footer>&copy; 2025 منتجع هول ان للقولف - كل الحقوق محفوظة</footer>
+
+    <!-- سكربت التكبير والتصغير -->
+    <script>
+        let zoomLevel = 1; /* مستوى التكبير */
+        const zoomStep = 0.2; /* خطوة التكبير */
+
+        /* دالة التكبير */
+        function zoomIn() {
+            zoomLevel += zoomStep; /* زيادة مستوى التكبير */
+            document.body.style.zoom = zoomLevel; /* تطبيق التكبير */
+        }
+
+        /* دالة التصغير */
+        function zoomOut() {
+            if (zoomLevel > 1) { /* التأكد من أن مستوى التكبير لا يقل عن 1 */
+                zoomLevel -= zoomStep; /* تقليل مستوى التكبير */
+                document.body.style.zoom = zoomLevel; /* تطبيق التصغير */
+            }
+        }
+        function submitReview() {
+            let rating = document.getElementById('rating').value;
+            let reviewText = document.getElementById('review-text').value;
+
+            if (reviewText === "") {
+                alert("يرجى كتابة رأيك.");
+            } else {
+                alert("تم إرسال تقييمك بنجاح!");
+                // يمكنك إضافة الكود لتخزين التقييم في قاعدة بيانات أو عرضه على الصفحة
+            }
+        }
+    </script>
+</body>
+</html>

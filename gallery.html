@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معرض الصور</title>
+    <style>
+        /* إعدادات الأساس للصفحة */
+        body {
+            font-family: 'Arial', sans-serif; /* نوع الخط */
+            background-color: #efede8; /* خلفية الصفحة */
+            color: #333; /* لون النص */
+            margin: 0; /* إزالة الهامش */
+            padding: 0; /* إزالة الحشوة */
+            text-align: center; /* محاذاة النص في المنتصف */
+        }
+
+        /* رأس الصفحة */
+        header {
+            background: linear-gradient(135deg, #2C3E50, #1ABC9C); /* تدرج الألوان */
+            padding: 15px; /* الحشوة */
+            color: white; /* لون النص */
+            font-size: 32px; /* حجم الخط */
+            font-weight: bold; /* سمك الخط */
+            position: fixed; /* تحديد الوضع */
+            width: 100%; /* عرض 100% */
+            top: 0; /* من الأعلى */
+            left: 0; /* من اليسار */
+            z-index: 1000; /* ترتيب العناصر */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* ظل الرأس */
+        }
+
+        /* قائمة التنقل */
+        nav {
+            display: flex; /* استخدام الفليكس لتوزيع العناصر */
+            justify-content: center; /* محاذاة العناصر في المنتصف */
+            gap: 20px; /* المسافة بين الروابط */
+            background-color: rgba(52, 73, 94, 0.95); /* لون الخلفية */
+            padding: 15px; /* حشوة */
+            position: sticky; /* جعل القائمة ثابتة عند التمرير */
+            top: 65px; /* المسافة من الأعلى */
+            z-index: 1000; /* ترتيب العناصر */
+        }
+
+        /* تنسيق الروابط */
+        nav a {
+            color: #fff; /* لون النص */
+            text-decoration: none; /* إزالة التسطير */
+            font-size: 18px; /* حجم الخط */
+            padding: 10px 15px; /* حشوة */
+            transition: 0.3s; /* التأثير عند التغيير */
+            border-radius: 5px; /* حواف دائرية */
+        }
+
+        /* تأثير عند التمرير على الرابط */
+        nav a:hover {
+            background-color: #1ABC9C; /* تغيير الخلفية */
+            transform: scale(1.1); /* تكبير الحجم */
+        }
+
+        /* إعدادات المحتوى الرئيسي */
+        .content {
+            margin-top: 100px; /* المسافة من الأعلى */
+            padding: 20px; /* حشوة */
+        }
+
+        /* تنسيق المعرض (الصور) */
+        .gallery {
+            display: grid; /* استخدام الشبكة لترتيب الصور */
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* توزيع الأعمدة */
+            gap: 15px; /* المسافة بين الصور */
+            margin-top: 30px; /* المسافة من الأعلى */
+        }
+
+        /* تنسيق الصور في المعرض */
+        .gallery img {
+            width: 100%; /* عرض الصورة 100% */
+            height: auto; /* الحفاظ على نسبة الطول والعرض */
+            border-radius: 10px; /* حواف دائرية */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* إضافة ظل للصورة */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* إضافة تأثير التحول */
+        }
+
+        /* تأثير عند التمرير على الصورة */
+        .gallery img:hover {
+            transform: scale(1.05); /* تكبير الصورة */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* تعديل الظل */
+        }
+
+        /* إعدادات الفيديو */
+        .video-container {
+            margin: 50px auto; /* المسافة من الأعلى والأسفل */
+            width: 80%; /* عرض الفيديو */
+            max-width: 800px; /* الحد الأقصى لعرض الفيديو */
+        }
+
+        video {
+            width: 100%; /* عرض الفيديو 100% */
+            height: auto; /* الحفاظ على نسبة العرض والطول */
+            border-radius: 10px; /* حواف دائرية */
+        }
+
+        /* إعدادات التذييل */
+        footer {
+            background-color: #2C3E50; /* خلفية التذييل */
+            color: white; /* لون النص */
+            padding: 15px; /* حشوة */
+            font-size: 14px; /* حجم الخط */
+            position: fixed; /* تثبيت التذييل في الأسفل */
+            bottom: 0; /* من الأسفل */
+            width: 100%; /* عرض التذييل */
+            text-align: center; /* محاذاة النص في المنتصف */
+        }
+
+        /* إعدادات أزرار التكبير والتصغير */
+        .zoom-btns {
+            margin-top: 20px; /* المسافة من الأعلى */
+            display: flex; /* استخدام الفليكس لترتيب الأزرار */
+            justify-content: center; /* محاذاة الأزرار في المنتصف */
+            gap: 20px; /* المسافة بين الأزرار */
+            margin-bottom: 40px; /* المسافة من الأسفل */
+            position: relative; /* تحديد الموقع بشكل نسبي */
+            z-index: 10; /* ضمان ظهور الأزرار فوق العناصر الأخرى */
+        }
+
+        /* تنسيق الأزرار */
+        .zoom-btn {
+            background-color: #1ABC9C; /* خلفية الزر */
+            color: white; /* لون النص */
+            border: none; /* إزالة الحدود */
+            padding: 10px 20px; /* حشوة */
+            font-size: 18px; /* حجم الخط */
+            cursor: pointer; /* تغيير المؤشر عند التمرير */
+            border-radius: 5px; /* حواف دائرية */
+            transition: 0.3s; /* تأثير التغيير */
+        }
+
+        /* تأثير عند التمرير على الزر */
+        .zoom-btn:hover {
+            background-color: #16A085; /* تغيير الخلفية */
+        }
+
+    </style>
+</head>
+<body>
+    <!-- رأس الصفحة -->
+    <header>
+        معرض صور
+    </header>
+    
+    <!-- قائمة التنقل -->
+    <nav>
+        <a href="service.html">الخدمات</a>
+        <a href="facalities.html">المرافق</a>
+        <a href="packages.html">الحزم</a>
+        <a href="Fq.html">الأسئلة الشائعة</a>
+        <a href="contact.html">تواصل معنا</a>
+        <a href="gallery.html">معرض الصور </a>
+        <a href="about.html">حول المنتجع</a>
+        <a href="index.html">الرئيسية </a>
+    </nav>
+    <br><br>    <br><br>    
+    <!-- أزرار التكبير والتصغير -->
+    <br>
+    <button class="zoom-btn" onclick="zoomIn()">تكبير</button>
+    <button class="zoom-btn" onclick="zoomOut()">تصغير</button>
+
+    <!-- المحتوى الرئيسي -->
+    <br><br>
+        <h2>معرض الصور</h2>
+        <p>اكتشف جمال منتجعنا من خلال الصور الملتقطة في أماكن مختلفة داخل المنتجع. استمتع بمشاهد رائعة لجمال الطبيعة والمرافق.</p>
+
+        <!-- المعرض (صور المنتجع) -->
+        <div class="gallery">
+            <img src="9a53292dc8fd8fbe7ca37e43d6fb1c54.jpg" alt="صورة المنتجع 1">
+            <img src="96143466c2c77e7100ebe0f5bf3b5c38.jpg" alt="صورة المنتجع 2">
+            <img src="download (2).jpeg" alt="صورة المنتجع 3">
+            <img src="download (4).jpeg" alt="صورة المنتجع 5">
+            <img src="download (5).jpeg" alt="صورة المنتجع 6">
+            <br><br>    <br><br>
+    </div>
+    <br><br>    <br><br>
+    <!-- التذييل -->
+    <footer>
+        <p>&copy; 2025 منتجع هول ان للقولف - جميع الحقوق محفوظة</p>
+    </footer>
+
+    <!-- سكربت التكبير والتصغير -->
+    <script>
+        let zoomLevel = 1; // مستوى التكبير
+        const zoomStep = 0.2; // مقدار التغيير
+
+        function zoomIn() {
+            zoomLevel += zoomStep;
+            document.body.style.zoom = zoomLevel;
+        }
+
+        function zoomOut() {
+            if (zoomLevel > zoomStep) {
+                zoomLevel -= zoomStep;
+                document.body.style.zoom = zoomLevel;
+            }
+        }
+    </script>
+</body>
+</html>
